@@ -15,3 +15,11 @@ function createCircularBoundary() {
     ctx.stroke();
 }
 window.addEventListener('resize', createCircularBoundary);
+
+createCircle();
+function createCircle() {
+    ctx.fillStyle = 'yellow';
+    ctx.beginPath();
+    ctx.arc(200, 200, 50, 0, Math.PI * 2);
+    ctx.fill();
+}
