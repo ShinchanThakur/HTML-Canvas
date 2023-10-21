@@ -24,6 +24,7 @@ function createCircle() {
     ctx.arc(200, 200, 50, 0, Math.PI * 2);
     ctx.fill();
 }
+window.addEventListener('resize', createCircle);
 
 createCircleWithBoundary();
 function createCircleWithBoundary() {
@@ -35,3 +36,4 @@ function createCircleWithBoundary() {
     ctx.fill();
     ctx.stroke();
 }
+window.addEventListener('resize', createCircleWithBoundary);
