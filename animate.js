@@ -31,4 +31,10 @@ function highlightMouse() {
     createCircle();
     requestAnimationFrame(highlightMouse);
 }
-highlightMouse();
+// highlightMouse();
+
+function paintBrush() {
+    createCircle();
+    requestAnimationFrame(paintBrush);
+}
+paintBrush();
