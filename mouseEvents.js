@@ -12,8 +12,8 @@ const mouse = {
     y: null
 }
 
-canvas.addEventListener('click', drawCircleAtMouseClickPosition);
-function drawCircleAtMouseClickPosition(event) {
+canvas.addEventListener('click', drawCircleAtMousePosition);
+function drawCircleAtMousePosition(event) {
     mouse.x = event.x;
     mouse.y = event.y;
     createCircle();
@@ -26,3 +26,5 @@ function createCircle() {
     ctx.fill();
 }
 createCircle();
+
+canvas.addEventListener('mousemove', drawCircleAtMousePosition);
