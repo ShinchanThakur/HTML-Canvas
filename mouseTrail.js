@@ -7,13 +7,22 @@ function fixCanvasPositionAndSize() {
 }
 window.addEventListener('resize', fixCanvasPositionAndSize);
 
-canvas.addEventListener('mousemove', create5Particles);
+const mouse = {
+    x: undefined,
+    y: undefined
+}
+canvas.addEventListener('mousemove', handleMouseMove);
+function handleMouseMove(event) {
+    mouse.x = event.x;
+    mouse.y = event.y;
+    createNParticles(5);
+}
 
 class Particle {
     constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 15 + 1; // 1 to 16
+        this.x = mouse.x;
+        this.y = mouse.y;
+        this.size = Math.random() * 10 + 1; // 1 to 11
         this.speedX = Math.random() * 3 - 1.5; // -1.5 to 1.5
         this.speedY = Math.random() * 3 - 1.5;
     }
@@ -31,8 +40,8 @@ class Particle {
 }
 
 const particlesArray = [];
-function create5Particles() {
-    for (let i = 0; i < 5; i++)
+function createNParticles(n) {
+    for (let i = 0; i < n; i++)
         particlesArray.push(new Particle());
 }
 
@@ -47,9 +56,9 @@ function updateAndDrawParticles() {
     }
 }
 
-function createParticleEffectOnScreen() {
+function createParticlesAtMousePosition() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     updateAndDrawParticles();
-    requestAnimationFrame(createParticleEffectOnScreen);
+    requestAnimationFrame(createParticlesAtMousePosition);
 }
-createParticleEffectOnScreen();
+createParticlesAtMousePosition();
