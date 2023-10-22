@@ -36,10 +36,14 @@ function create100Particles() {
 create100Particles();
 
 function updateAndDrawParticles() {
-    particlesArray.forEach((particle) => {
-        particle.update();
-        particle.createCircle();
-    });
+    for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].createCircle();
+        if (particlesArray[i].size <= 0.2) {
+            particlesArray.splice(i, 1);    // removing particle from array
+            i--;
+        }
+    }
 }
 
 function createParticleEffectOnScreen() {
