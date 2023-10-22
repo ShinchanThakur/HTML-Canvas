@@ -61,4 +61,12 @@ function createParticlesAtMousePosition() {
     updateAndDrawParticles();
     requestAnimationFrame(createParticlesAtMousePosition);
 }
-createParticlesAtMousePosition();
+// createParticlesAtMousePosition();
+
+function createParticlesWithTrails() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.02)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    updateAndDrawParticles();
+    requestAnimationFrame(createParticlesWithTrails);
+}
+createParticlesWithTrails();
